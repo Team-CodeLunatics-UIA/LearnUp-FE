@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+
+.slide__container {
+  display: flex;
+  justify-content: space-around;
+  z-index: 10;
+}
+
+.left {
+  z-index: 1;
+  /* margin-left: 75px; */
+  /* display: flex; */
+  /* flex-direction: column;
+  align-items: flex-start; */
+  max-width: 50%;
+}
+
+.showcase__text {
+  margin-bottom: 30px;
+}
+
+.heading {
+  text-align: left;
+  padding-top: 1rem;
+}
+
+.heading p {
+  margin: 0;
+}
+
+.text__primary {
+  color: rgb(24, 17, 17);
+  font-size: 1.125rem;
+  font-weight: var(--fontBold);
+  margin-bottom: 2rem !important;
+}
+
+.text__secondary {
+  color: rgb(24, 17, 17);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem !important;
+}
+
+.info {
+  text-align: left;
+  color: #504b4b;
+  text-align: justify;
+}
+
+.btn {
+  padding: 9px 25px;
+  cursor: pointer;
+  background-color: #263252;
+  color: #fff;
+  font-weight: var(--fontRegular);
+  font-size: 0.9375rem;
+  border-radius: 20px;
+}
+
+.right {
+  width: 30%;
+  max-width: 30%;
+}
+
+.right img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* SECOND SLIDE */
+.slide__container2 .center {
+  position: absolute;
+  z-index: 1;
+  margin-left: 450px;
+  font-size: 3.5rem;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "Kaushan Script", cursive;
+}
+
+.second_text {
+  margin-top: 70px;
+}
+
+.second_bg {
+  position: relative;
+  height: 70vh;
+}
+
+.second_bg img {
+  height: 100%;
+}
+
+/* THIRD SLIDE*/
+.bgImage {
+  height: 100%;
+}
+
+.bgImage img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 450px) {
+  .left {
+    max-width: 50%;
+  }
+
+  .left .showcase__text {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 0;
+    margin-bottom: 0.8rem;
+  }
+
+  .left .heading {
+    padding-left: 5px;
+    padding-top: 0;
+  }
+
+  .text__secondary {
+    font-size: 1rem;
+  }
+
+  .text__primary {
+    font-size: 0.8rem;
+    text-align: justify;
+    margin-bottom: 0 !important;
+  }
+
+  .info {
+    display: none;
+  }
+
+  .right {
+    width: 45%;
+    max-width: 45%;
+  }
+
+  .right img {
+    width: 100%;
+  }
+
+  /* SECOND SLIDE */
+  .second_bg,
+  .bgImage {
+    height: 30vh;
+  }
+
+  .slide__container2 .center {
+    margin-left: 90px;
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-family: "Kaushan Script", cursive;
+  }
+
+  .slide__container2 .second_text {
+    margin-top: 30px;
+  }
+
+  .btn {
+    width: 80%;
+    margin: auto;
+    border-radius: 12px;
+    padding: 6px 15px;
+    margin-bottom: 2.5rem;
+  }
+
+  .bgImage img {
+    object-fit: contain;
+  }
+}

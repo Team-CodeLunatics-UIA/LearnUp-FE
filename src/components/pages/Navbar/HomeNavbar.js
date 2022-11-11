@@ -4,7 +4,7 @@ import { HashLink } from "react-router-hash-link";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 
-import LearnUpLogo from "../../../assets/icons/learnUp.png";
+import LearnUpLogo from "../../../assets/icons/learnup2.jpg";
 import MoELogo from "../../../assets/icons/MoE.jpg";
 
 import styles from "../../../styles/Home/HomeNavbar.module.css";
@@ -47,11 +47,7 @@ const HomeNavbar = () => {
         <div className={styles.top_navbar_wrapper}>
           <div className={styles.leftSide}>
             <img className={styles.emblemLogoContainer} src={MoELogo} alt="logo" />
-            <span className={styles.logo_heading}>
-              Indian Council for
-              <br></br>
-              Cultural Relations
-            </span>
+            <span className={styles.logo_heading}>Ministry of Education</span>
           </div>
 
           <div className={styles.rightSide}>
@@ -113,7 +109,7 @@ const HomeNavbar = () => {
                         <Link to="/signup">Admin/Officer</Link>
                       </li>
                       <li>
-                        <Link to="/alumni/signup">Alumni</Link>
+                        <Link to="/school/signup">School Official</Link>
                       </li>
                     </ul>
                   </div>
@@ -143,7 +139,7 @@ const HomeNavbar = () => {
                         <Link to="/signup">Admin/Officer</Link>
                       </option>
                       <option>
-                        <Link to="/alumni/signup">Alumni</Link>
+                        <Link to="/school/signup">School Official</Link>
                       </option>
                     </select>
                     {/* <Link to="/signup">SignUp</Link> */}
