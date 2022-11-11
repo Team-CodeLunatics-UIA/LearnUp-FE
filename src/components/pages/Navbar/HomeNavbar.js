@@ -47,7 +47,9 @@ const HomeNavbar = () => {
         <div className={styles.top_navbar_wrapper}>
           <div className={styles.leftSide}>
             <img className={styles.emblemLogoContainer} src={MoELogo} alt="logo" />
-            <span className={styles.logo_heading}>Ministry of Education</span>
+            <span className={styles.logo_heading}>
+              Ministry of Education <br /> Government of India
+            </span>
           </div>
 
           <div className={styles.rightSide}>
