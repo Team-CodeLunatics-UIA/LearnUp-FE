@@ -2,7 +2,7 @@ import React from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { Home, About, Signup, Page404, Login } from "./components/pages";
+import { PrivateRoute, Home, About, Overview, Signup, Page404, Login } from "./components/pages";
 
 function App() {
   return (
@@ -13,6 +13,8 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
+
+          <PrivateRoute exact path="/admin/overview" component={Overview} />
 
           <Route path="*" component={Page404} />
         </Switch>

@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  background-color: #02263c;
+  color: #fff;
+}
+
+.navbarContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.navItems1 {
+  width: 85%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuIcon {
+  cursor: pointer;
+  display: flex;
+}
+
+.searchBar {
+  width: 50%;
+  margin: 0 2%;
+}
+
+.searchBar button {
+  background-color: #fff;
+}
+
+#nav-dropdown-light-example::after {
+  border-right: 0.3em solid white !important;
+  border-left: 0.3em solid white !important;
+}
+
+.notification {
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.userDropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navItems2 {
+  width: 10%;
+  justify-content: flex-end;
+  align-items: center;
+}

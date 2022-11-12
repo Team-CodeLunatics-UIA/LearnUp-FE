@@ -31,12 +31,12 @@ const CarouselSlider = () => {
                 <p className={styles.text__primary}>Creating a Unified Platform for Schools Transformation and Improvement</p>
               </div>
               <div className={styles.info}>
-                Using a secure online interface, Government can administer, monitor and analyze the performance of every registered primary and
-                secondary educational institutions on different levels. Different information and data will be given related to curriculum progress,
-                budget, attendance, successful passouts as well as student feedbacks in the same domains by officials at different levels starting
-                from the Schools to State level. These data will be tracked and analyzed at each stage and visualized to show the current trend
-                related to different areas of the schooling and educational growth. Selected Government officials working on the topmost levels will
-                be taking actions and remedials related to the other policies based on the analysis of data and feedback improvements suggested.
+                Using a secure online interface, Government can manage, oversee, and assess on several levels each registered primary and secondary
+                educational institution's performance. Officials at various levels, starting from the school level to the state level, will provide
+                various statistics and data relating to curriculum advancement, budget, attendance, successful passouts, as well as student comments
+                in the same domains. These data will be monitored, evaluated, and visualised at each level to demonstrate the present trend relating
+                to many facets of educational development. Selected government employees at the highest levels will implement corrective measures and
+                actions based on data analysis and suggestions for improvement.
               </div>
             </div>
           </div>
