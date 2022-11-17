@@ -1,0 +1,9 @@
+/* PROFILE CARD */
+.profile_left {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.profile_left .profile_single_detail span {
+  padding-left: 0;
+  padding-bottom: 1%;
+}

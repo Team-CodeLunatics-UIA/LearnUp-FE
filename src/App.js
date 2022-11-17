@@ -2,7 +2,19 @@ import React from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { PrivateRoute, Home, About, Overview, Signup, Page404, Login } from "./components/pages";
+import {
+  PrivateRoute,
+  Home,
+  About,
+  Overview,
+  Signup,
+  Page404,
+  Login,
+  StaffReports,
+  NationalView,
+  TrainingStatus,
+  Infographics,
+} from "./components/pages";
 
 function App() {
   return (
@@ -15,6 +27,10 @@ function App() {
           <Route exact path="/login" component={Login} />
 
           <PrivateRoute exact path="/admin/overview" component={Overview} />
+          <PrivateRoute exact path="/admin/reports" component={StaffReports} />
+          <PrivateRoute exact path="/admin/national/view" component={NationalView} />
+          <PrivateRoute exact path="/admin/training" component={TrainingStatus} />
+          <PrivateRoute exact path="/admin/infographics" component={Infographics} />
 
           <Route path="*" component={Page404} />
         </Switch>

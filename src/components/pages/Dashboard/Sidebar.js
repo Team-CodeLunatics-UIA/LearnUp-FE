@@ -31,19 +31,19 @@ const Sidebar = () => {
       </div>
       {/* )} */}
       <div className={active === 1 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`} onClick={() => setActive(1)}>
-        <Link to="/admin/report/status">Staff Reports</Link>
+        <Link to="/admin/reports">Staff Reports</Link>
         <TbReportAnalytics />
       </div>
-      <div className={active === 1 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`} onClick={() => setActive(1)}>
-        <Link to="/admin/report/status">National/State View</Link>
+      <div className={active === 2 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`} onClick={() => setActive(2)}>
+        <Link to="/admin/national/view">National/State View</Link>
         <BsFillMapFill />
       </div>
-      <div className={active === 1 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`} onClick={() => setActive(1)}>
-        <Link to="/admin/report/status">Training Status</Link>
+      <div className={active === 3 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`} onClick={() => setActive(3)}>
+        <Link to="/admin/training">Training Status</Link>
         <FaUsersCog />
       </div>
-      <div className={active === 1 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`} onClick={() => setActive(1)}>
-        <Link to="/admin/report/status">Infographics</Link>
+      <div className={active === 4 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`} onClick={() => setActive(4)}>
+        <Link to="/admin/infographics">Infographics</Link>
         <GoGraph />
       </div>
       {/* {user.role === "candidate" ? ( */}
