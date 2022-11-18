@@ -8,7 +8,7 @@ import { FaFilter } from "react-icons/fa";
 import { BsSortDownAlt, BsSortDown } from "react-icons/bs";
 
 // REACT TABLE
-import MOCK_DATA from "../../Utils/MOCK_DATA.json";
+import MOCK_DATA from "../../../Utils/MOCK_DATA.json";
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 import { format } from "date-fns";
 

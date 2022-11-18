@@ -8,7 +8,7 @@ import { FaFilter } from "react-icons/fa";
 import { BsSortDownAlt, BsSortDown } from "react-icons/bs";
 
 // REACT TABLE
-import MOCK_DATA from "../../Utils/MOCK_DATA.json";
+import MOCK_DATA from "../../../Utils/MOCK_DATA.json";
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 import { format } from "date-fns";
 
@@ -64,16 +64,26 @@ const Reports = () => {
   const data = useMemo(() => MOCK_DATA, []);
   const [viewReport, setViewReport] = useState(false);
 
-  const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, canPreviousPage, canNextPage, gotoPage, prepareRow } =
-    useTable(
-      {
-        columns,
-        data,
-      },
-      useFilters,
-      useSortBy,
-      usePagination
-    );
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    nextPage,
+    previousPage,
+    canPreviousPage,
+    canNextPage,
+    gotoPage,
+    prepareRow,
+  } = useTable(
+    {
+      columns,
+      data,
+    },
+    useFilters,
+    useSortBy,
+    usePagination
+  );
 
   return (
     <div className={styles.alertsContainer}>
@@ -110,10 +120,25 @@ const Reports = () => {
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                  <th className={styles.tableHeaderRow + " " + styles.clrGrey} {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  <th
+                    className={styles.tableHeaderRow + " " + styles.clrGrey}
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                  >
                     {column.render("Header")}
-                    <span>{column.isSorted ? column.isSortedDesc ? <BsSortDown /> : <BsSortDownAlt /> : ""}</span>
-                    <div className={styles.filter}>{toggleFilter && (column.canFilter ? column.render("Filter") : null)}</div>
+                    <span>
+                      {column.isSorted ? (
+                        column.isSortedDesc ? (
+                          <BsSortDown />
+                        ) : (
+                          <BsSortDownAlt />
+                        )
+                      ) : (
+                        ""
+                      )}
+                    </span>
+                    <div className={styles.filter}>
+                      {toggleFilter && (column.canFilter ? column.render("Filter") : null)}
+                    </div>
                   </th>
                 ))}
               </tr>
@@ -167,7 +192,9 @@ const Reports = () => {
             onChange={(e) => {
               const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0;
               gotoPage(pageNumber);
-              setPageIndex(e.target.value <= Math.ceil(data?.length / 10) ? e.target.value : pageIndex);
+              setPageIndex(
+                e.target.value <= Math.ceil(data?.length / 10) ? e.target.value : pageIndex
+              );
               //   setPageIndex(e.target.value <= Math.ceil(eventState?.length / 10) ? e.target.value : Math.ceil(eventState?.length / 10));
             }}
           />

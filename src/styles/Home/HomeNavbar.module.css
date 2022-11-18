@@ -48,7 +48,7 @@
 
 .rightSide .font_size_change button {
   font-weight: 600;
-  width: 40px;
+  width: max-content;
   height: 29px;
   color: white;
   cursor: pointer;
@@ -241,13 +241,14 @@
   list-style: none;
 }
 
-.dropdown__content ul li:last-child {
+/* .dropdown__content ul li:last-child {
   margin-left: 8px;
-}
+} */
 
 /* Links inside the dropdown */
 .dropdown__content a {
   float: none;
+  width: max-content;
   color: black;
   text-decoration: none;
   display: block;
@@ -310,8 +311,8 @@
 
   .phoneMenuPopup ul li a {
     display: block;
-    padding: 0.5rem 1rem;
-    color: #222;
+    padding: 0.8rem 1rem;
+    color: #fff;
   }
 
   .phoneMenuPopup ul li:hover {

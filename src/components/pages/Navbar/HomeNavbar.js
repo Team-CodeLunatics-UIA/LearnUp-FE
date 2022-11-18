@@ -97,15 +97,22 @@ const HomeNavbar = () => {
             <ul className={styles.links__auth}>
               <li className={styles.login}>
                 {/* <Link to="/login">{isAuthenticated ? "Dashboard" : "Login"}</Link> */}
-                <Link to="/login">{"Login"}</Link>
+                <Link to="/login">Login</Link>
               </li>
               {/* {!isAuthenticated && ( */}
               <li>
                 <div class={styles.dropdown}>
-                  <button onClick={() => setSignupActive(!isSignupActive)} className={styles.dropbtn}>
+                  <button
+                    onClick={() => setSignupActive(!isSignupActive)}
+                    className={styles.dropbtn}
+                  >
                     <b>Sign Up</b>
                   </button>
-                  <div id="myDropdown" style={{ display: !isSignupActive ? "none" : "block" }} className={styles.dropdown__content}>
+                  <div
+                    id="myDropdown"
+                    style={{ display: !isSignupActive ? "none" : "block" }}
+                    className={styles.dropdown__content}
+                  >
                     <ul>
                       <li>
                         <Link to="/signup">Admin/Officer</Link>
@@ -135,16 +142,8 @@ const HomeNavbar = () => {
                   </li>
                   {/* {!isAuthenticated && ( */}
                   <li>
-                    <select>
-                      <option>SignUp</option>
-                      <option>
-                        <Link to="/signup">Admin/Officer</Link>
-                      </option>
-                      <option>
-                        <Link to="/school/signup">School Official</Link>
-                      </option>
-                    </select>
-                    {/* <Link to="/signup">SignUp</Link> */}
+                    <Link to="/signup">Officer Signup</Link>
+                    <Link to="/school/signup">Students Signup</Link>
                   </li>
                   {/* )} */}
                   <li>

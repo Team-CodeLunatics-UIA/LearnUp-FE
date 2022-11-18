@@ -1,0 +1,244 @@
+.container {
+  /* background-color: rgb(227, 227, 231); */
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: max-content;
+  margin: 3rem auto;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--colorLighter2);
+  font-weight: var(--fontRegular);
+}
+
+.loginPageContainer {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border: 2px solid rgb(0 0 0 / 0.1);
+  border-radius: 10px;
+  width: 30%;
+  height: 85%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 2rem;
+}
+
+/* ------ For Manufacturer & WareHouse Signup: START HERE ------ */
+.headersContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  /* border: 1px solid red; */
+  margin-bottom: 5%;
+}
+
+.logoIcon2 {
+  width: 15%;
+  margin: 3% 2% 0 2%;
+  height: min-content;
+  /* border: 1px solid red; */
+}
+
+.logoIcon2 img {
+  width: 100%;
+}
+
+.headersContainer .headers2 {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+
+.headersContainer .headers2 .title2 {
+  font-weight: var(--fontMedium);
+  color: var(--colorSecondary);
+  font-size: 1.3rem;
+  margin-top: -1%;
+  margin-bottom: -5%;
+  /* border: 1px solid red; */
+}
+
+.headersContainer .headers2 .titleDetails2 {
+  font-weight: var(--fontMedium);
+  color: var(--colorSecondary);
+  font-size: 0.8rem;
+  margin-bottom: -1%;
+  /* border: 1px solid red; */
+}
+
+/* -------- END HERE -------- */
+
+/* -------- For Admin & Medical Store: START HERE ------- */
+.logoIcon {
+  margin-top: 5%;
+  width: 20%;
+  height: min-content;
+  /* border: 1px solid red; */
+}
+
+.logoIcon img {
+  width: 100%;
+}
+
+.headers .title {
+  font-weight: var(--fontMedium);
+  color: var(--colorSecondary);
+  font-size: 1.25rem;
+  /* border: 1px solid red; */
+}
+
+.headers .titleDetails {
+  font-weight: var(--fontMedium);
+  color: var(--colorSecondary);
+  font-size: 0.75rem;
+  /* border: 1px solid red; */
+}
+
+/* -----------END HERE------------ */
+
+.loginTitle {
+  margin: 5px 0;
+  font-weight: 600;
+  font-size: 1.3rem;
+  /* border: 1px solid red; */
+}
+
+.formContainer {
+  width: 85%;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer .inputContainer {
+  width: 100%;
+  /* border: 1px solid cyan; */
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-bottom: 5%;
+}
+
+.formContainer .inputContainer ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(159, 162, 180, 0.5);
+  opacity: 1;
+  /* Firefox */
+}
+
+.formContainer .inputContainer input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 3%;
+  border: 1px solid rgba(159, 162, 180, 0.4);
+  border-radius: 5px;
+}
+
+.formContainer .inputContainer input:focus {
+  outline: none;
+}
+
+.formContainer .inputContainer label {
+  font-size: 0.75rem;
+  color: var(--colorLighter2);
+}
+
+.formContainer .select {
+  width: 100%;
+  text-align: left;
+  font-size: 13px;
+}
+
+.formContainer .links {
+  font-size: 0.85rem;
+}
+
+.formContainer .link {
+  text-decoration: none;
+  color: var(--colorbutton);
+}
+
+.formContainer .link:hover {
+  text-decoration: underline;
+}
+
+.formContainer .inputContainer .inputPassword {
+  width: 100%;
+  position: relative;
+  /* border: 1px solid cyan; */
+}
+
+.formContainer .inputContainer .showPassword {
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+  cursor: pointer;
+  /* border: 1px solid cyan; */
+}
+
+/* .formContainer .inputContainer .showPassword img {
+  width: 100%;
+} */
+
+.submit {
+  width: 100%;
+  color: white;
+  padding: 4% 0;
+  border: none;
+  box-shadow: 0px 0px 10px 0px rgba(186, 186, 186, 1);
+  border-radius: 5px;
+  background-color: #147eb7;
+  margin-bottom: 20px;
+}
+
+.submit:hover {
+  background-color: #116897;
+  cursor: pointer;
+}
+
+.footer {
+  font-size: 0.75rem;
+  color: var(--colorLighter2);
+}
+
+.footer a {
+  font-weight: var(--fontRegular);
+  color: var(--colorbutton);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1080px) {
+  .loginPageContainer {
+    width: 50%;
+  }
+}
+
+@media (max-width: 750px) {
+  .loginPageContainer {
+    width: 80%;
+  }
+
+  .formContainer .inputContainer .showPassword {
+    bottom: 0px;
+  }
+}

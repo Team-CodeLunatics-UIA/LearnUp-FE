@@ -10,31 +10,36 @@ import Footer from "../Footer";
 
 import styles from "../../../styles/Forms/Signup.module.css";
 import authContext from "../../../context/auth/authContext";
-import { roleOptions } from "../../../Utils/constants";
 
-const Signup = (props) => {
+const roleOptions = [
+  {
+    value: "student",
+    label: "Enrolled Student",
+  },
+  {
+    value: "alumni",
+    label: "Alumni",
+  },
+];
+
+const StudentSignup = (props) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
   const [registering, setRegistering] = useState(false);
 
   const [user, setUser] = useState({
-    licenceID: "",
+    studentID: "",
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
-    pin: "",
+    role: "",
   });
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const { name, email, password, confirmPassword, licenceID, pin } = user;
+  const [role, setRole] = useState(null);
+  const { studentID, name, email, password, confirmPassword } = user;
   const { signup, registered, error, clearError } = useContext(authContext);
 
   useEffect(() => {
-    // if (isAuthenticated === true) {
-    //   if (user.role === "ICCRUser") props.history?.push("user/events");
-    //   else props.history?.push("user/dashboard");
-    // }
     if (registered) {
       toast.info(
         "A Verification Link has been sent to your email address. Please verify to continue"
@@ -67,7 +72,7 @@ const Signup = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!selectedOption) {
+    if (!role) {
       toast.error("Please select a role");
       return;
     }
@@ -75,12 +80,8 @@ const Signup = (props) => {
       toast.error("Both Passwords don't match!");
       return;
     }
-    if (isNaN(Number(pin))) {
-      toast.error("Pin must be a number");
-      return;
-    }
     setRegistering(true);
-    await signup({ ...user, role: selectedOption.value, pin: +pin });
+    await signup({ ...user, role: role.value });
     setRegistering(false);
   };
 
@@ -97,19 +98,23 @@ const Signup = (props) => {
 
           <form className={styles.formContainer} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
-              <label htmlFor="id">Licence ID</label>
+              <label htmlFor="id">
+                STUDENT ID <span style={{ color: "red" }}> *</span>
+              </label>
               <input
                 type="text"
-                id="licenceID"
-                name="licenceID"
-                value={licenceID}
+                id="studentID"
+                name="studentID"
+                value={studentID}
                 onChange={onChange}
-                placeholder="Licence ID"
+                placeholder="Student ID"
                 required
               />
             </div>
             <div className={styles.inputContainer}>
-              <label htmlFor="id">Name</label>
+              <label htmlFor="id">
+                NAME <span style={{ color: "red" }}> *</span>
+              </label>
               <input
                 type="text"
                 id="name"
@@ -122,7 +127,9 @@ const Signup = (props) => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="email">EMAIL</label>
+              <label htmlFor="email">
+                EMAIL <span style={{ color: "red" }}> *</span>
+              </label>
               <input
                 type="email"
                 id="email"
@@ -135,7 +142,9 @@ const Signup = (props) => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="password">PASSWORD</label>
+              <label htmlFor="password">
+                PASSWORD <span style={{ color: "red" }}> *</span>
+              </label>
               <div className={styles.inputPassword}>
                 <input
                   type={passwordShown ? "text" : "password"}
@@ -164,7 +173,9 @@ const Signup = (props) => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="confirm-password">VERIFY PASSWORD</label>
+              <label htmlFor="confirm-password">
+                VERIFY PASSWORD <span style={{ color: "red" }}> *</span>
+              </label>
               <div className={styles.inputPassword}>
                 <input
                   type={confirmPasswordShown ? "text" : "password"}
@@ -191,30 +202,24 @@ const Signup = (props) => {
                 </div>
               </div>
             </div>
+
             <div className={styles.inputContainer}>
+              <label htmlFor="role">
+                STATUS <span style={{ color: "red" }}> *</span>
+              </label>
               <Select
                 className={styles.select}
-                value={selectedOption}
-                onChange={setSelectedOption}
                 options={roleOptions}
-                placeholder="Select your role"
+                value={role}
+                onChange={(value) => {
+                  setRole(value);
+                }}
+                name="role"
+                id="role"
+                placeholder="Select Status"
+                required
               />
             </div>
-            {selectedOption && selectedOption?.value !== "ICCRUser" && (
-              <div className={styles.inputContainer}>
-                <input
-                  type="text"
-                  id="pin"
-                  name="pin"
-                  value={pin}
-                  maxLength="4"
-                  minLength="4"
-                  onChange={onChange}
-                  placeholder="Enter 4 digit PIN"
-                  required
-                />
-              </div>
-            )}
             <button
               type="submit"
               className={styles.submit}
@@ -236,4 +241,4 @@ const Signup = (props) => {
   );
 };
 
-export default Signup;
+export default StudentSignup;
