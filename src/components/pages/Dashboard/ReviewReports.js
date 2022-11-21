@@ -25,37 +25,37 @@ import styles from "../../../styles/Dashboard/reviewReport.module.css";
 
 const data = [
   {
-    subject: "Development",
+    subject: "Scholarships",
     A: 120,
     B: 110,
     fullMark: 150,
   },
   {
-    subject: "Linkedin",
+    subject: "Achievements",
     A: 98,
     B: 130,
     fullMark: 150,
   },
   {
-    subject: "Resume",
+    subject: "Resources",
     A: 86,
     B: 130,
     fullMark: 150,
   },
   {
-    subject: "Skills",
+    subject: "Perception",
     A: 99,
     B: 100,
     fullMark: 150,
   },
   {
-    subject: "Experience",
+    subject: "Curriculum",
     A: 85,
     B: 90,
     fullMark: 150,
   },
   {
-    subject: "Certifications",
+    subject: "Training",
     A: 65,
     B: 85,
     fullMark: 150,
@@ -97,14 +97,20 @@ const data02 = [
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
-
 // const ReviewReports = ({ handleClose, candidate }) => {
 const ReviewReports = ({ handleClose }) => {
   return (
     <>
-      <Modal size={"lg"} show={true} onHide={handleClose} backdrop="static" keyboard={false} centered>
+      <Modal
+        size={"lg"}
+        show={true}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+        centered
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Profile Analysis</Modal.Title>
+          <Modal.Title>Staff Report</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Container>
@@ -151,7 +157,13 @@ const ReviewReports = ({ handleClose }) => {
                       <PolarGrid />
                       <PolarAngleAxis dataKey="subject" />
                       <PolarRadiusAxis />
-                      <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                      <Radar
+                        name="Mike"
+                        dataKey="A"
+                        stroke="#8884d8"
+                        fill="#8884d8"
+                        fillOpacity={0.6}
+                      />
                     </RadarChart>
                   </ResponsiveContainer>
                 </Row>

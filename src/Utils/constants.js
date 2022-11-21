@@ -16,3 +16,13 @@ export const roleOptions = [
     label: "School Official",
   },
 ];
+
+// export const feedbackCategories = [
+//   { value: null, label: "Select Category Type" },
+//   { value: "scholarship", label: "Scholarship" },
+//   { value: "curriculum", label: "Curriculum" },
+//   { value: "exam", label: "Exams" },
+//   { value: "faculty", label: "Faculty" },
+//   { value: "books", label: "Study Material" },
+//   { value: "other", label: "other" },
+// ];

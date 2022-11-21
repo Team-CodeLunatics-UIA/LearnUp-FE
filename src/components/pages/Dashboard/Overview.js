@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { AiOutlinePlus } from "react-icons/ai";
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 import styles from "../../../styles/Dashboard/overview.module.css";
 
@@ -25,17 +33,17 @@ const Overview = () => {
   // Tasks
   const [tasks, setTasks] = useState([
     {
-      content: "Escalated to Raid Team",
+      content: "Review Scholarship Details",
       priority: "Urgent",
       color: "#fec400",
     },
     {
-      content: "Escalated to Raid Team",
+      content: "Approve State Fundings",
       priority: "New",
       color: "#29cc97",
     },
     {
-      content: "Escalated to Raid Team",
+      content: "Plan New Schemes",
       priority: "Default",
       color: "#dfe0eb",
     },
@@ -126,7 +134,9 @@ const Overview = () => {
           <div className={styles.sectionHeader}>
             <div className={styles.titleSubtitle}>
               <p className={styles.sectionTitle}>Today's Trends</p>
-              <p className={styles.sectionSubTitle + " " + styles.clrGrey}>As of 25 May 2019, 09:41 PM</p>
+              <p className={styles.sectionSubTitle + " " + styles.clrGrey}>
+                As of 25 May 2019, 09:41 PM
+              </p>
             </div>
 
             <div className={styles.graphLineHelper + " " + styles.clrGrey}>
@@ -144,7 +154,11 @@ const Overview = () => {
 
           <div className={styles.chartContainer}>
             <ResponsiveContainer width="100%" aspect={2 / 1}>
-              <AreaChart width="70%" data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+              <AreaChart
+                width="70%"
+                data={data}
+                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+              >
                 <defs>
                   <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="10%" stopColor="#99d9d9" stopOpacity={0.2} />
@@ -158,8 +172,20 @@ const Overview = () => {
                 <XAxis dataKey="date" />
                 <YAxis />
                 <Tooltip />
-                <Area type="monotone" dataKey="uv" stroke="#99d9d9" fillOpacity={1} fill="url(#colorUv)" />
-                <Area type="monotone" dataKey="pv" stroke="#147eb7" fillOpacity={1} fill="url(#colorPv)" />
+                <Area
+                  type="monotone"
+                  dataKey="uv"
+                  stroke="#99d9d9"
+                  fillOpacity={1}
+                  fill="url(#colorUv)"
+                />
+                <Area
+                  type="monotone"
+                  dataKey="pv"
+                  stroke="#147eb7"
+                  fillOpacity={1}
+                  fill="url(#colorPv)"
+                />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -189,7 +215,9 @@ const Overview = () => {
 
           <div className={styles.chart}>
             <p className={styles.chartTitle + " " + styles.clrGrey}>Anomalies Discarded</p>
-            <p className={styles.chart_number + " " + styles.clrLightGreen}>{charts.anamoliesDiscarded}</p>
+            <p className={styles.chart_number + " " + styles.clrLightGreen}>
+              {charts.anamoliesDiscarded}
+            </p>
           </div>
         </div>
       </div>
@@ -268,7 +296,13 @@ const Overview = () => {
                       <input type="checkbox"></input>
                       <p>{task.content}</p>
                     </div>
-                    <p className={styles.taskPriority} style={{ color: task.color === "#dfe0eb" ? "black" : "white", backgroundColor: task.color }}>
+                    <p
+                      className={styles.taskPriority}
+                      style={{
+                        color: task.color === "#dfe0eb" ? "black" : "white",
+                        backgroundColor: task.color,
+                      }}
+                    >
                       {task.priority}
                     </p>
                   </div>

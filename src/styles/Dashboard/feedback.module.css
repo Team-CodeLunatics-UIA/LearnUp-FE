@@ -1,0 +1,48 @@
+.card {
+  margin-bottom: 3%;
+  -webkit-box-shadow: 10px 10px 20px -5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 10px 10px 20px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.editSection {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.editSection:hover {
+  color: blue;
+}
+
+.eduContainer {
+  margin-top: 20px;
+}
+
+.singleEduContainer {
+  width: 100%;
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.eduDetails {
+  width: 70%;
+  line-height: 0.5em;
+}
+
+.edu_date_grade {
+  text-align: right;
+  line-height: 0.5em;
+}
+
+.noParsedData {
+  color: darkgray;
+}

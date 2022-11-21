@@ -17,6 +17,7 @@
   text-align: center;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
   -webkit-box-shadow: 2px 4px 10px 1px rgba(20, 126, 183, 0.2);
   box-shadow: 2px 4px 10px 1px rgba(20, 126, 183, 0.2);
   /* box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1); */
@@ -97,6 +98,7 @@
   justify-content: space-between;
   margin-bottom: 5%;
   border-radius: 5px;
+  background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 2px 4px 10px 1px rgba(20, 126, 183, 0.2);
   box-shadow: 2px 4px 10px 1px rgba(20, 126, 183, 0.2);
@@ -190,6 +192,7 @@
 
 .unresolved_alerts_Container {
   width: 45%;
+  background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 2px 4px 10px 1px rgba(20, 126, 183, 0.2);
   box-shadow: 2px 4px 10px 1px rgba(20, 126, 183, 0.2);

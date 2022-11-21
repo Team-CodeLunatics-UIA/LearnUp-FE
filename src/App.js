@@ -16,6 +16,9 @@ import {
   TrainingStatus,
   Infographics,
   StudentSignup,
+  StudentFeedback,
+  Improvements,
+  SendReports,
 } from "./components/pages";
 
 import AuthState from "./context/auth/authState";
@@ -42,6 +45,11 @@ function App() {
             <PrivateRoute exact path="/admin/national/view" component={NationalView} />
             <PrivateRoute exact path="/admin/training" component={TrainingStatus} />
             <PrivateRoute exact path="/admin/infographics" component={Infographics} />
+
+            <PrivateRoute exact path="/staff/report/create" component={SendReports} />
+
+            <PrivateRoute exact path="/student/feedback" component={StudentFeedback} />
+            <PrivateRoute exact path="/student/improvements" component={Improvements} />
 
             <Route path="*" component={Page404} />
           </Switch>
