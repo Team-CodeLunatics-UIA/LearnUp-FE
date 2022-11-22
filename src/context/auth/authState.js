@@ -34,7 +34,7 @@ const AuthState = (props) => {
       setAuthToken(localStorage.token);
     }
     try {
-      const res = await axios.get(url + "/api/auth");
+      const res = await axios.get(url + "/auth");
       dispatch({
         type: GET_USER,
         payload: res.data.data,
@@ -53,7 +53,7 @@ const AuthState = (props) => {
           "Content-Type": "application/json",
         },
       };
-      const res = await axios.post(url + "/api/auth/signup", user, config);
+      const res = await axios.post(url + "/signupschool", user, config);
       dispatch({
         type: SIGNUP_USER,
         payload: res.data.data,
@@ -76,7 +76,7 @@ const AuthState = (props) => {
           "Content-Type": "application/json",
         },
       };
-      const res = await axios.post(url + "/api/auth/login", user, config);
+      const res = await axios.post(url + "/loginschool", user, config);
       dispatch({
         type: LOGIN_USER,
         payload: res.data.data,
