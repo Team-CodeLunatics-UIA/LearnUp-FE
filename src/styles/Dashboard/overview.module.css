@@ -115,12 +115,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 200px;
+  width: 300px; 
   /* border: 1px solid red; */
 }
 
 .graphContainer .graphLineHelper .singleLineHelper {
-  width: 50%;
+  width: 45%;
   display: flex;
   justify-content: space-evenly;
   align-items: baseline;
