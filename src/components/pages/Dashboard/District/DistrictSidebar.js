@@ -45,10 +45,19 @@ const DistrictSidebar = () => {
         }
         onClick={() => setActive(1)}
       >
+        <Link to="/district/map">Map View</Link>
+        <BsFillMapFill />
+      </div>
+      {/* <div
+        className={
+          active === 1 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
+        }
+        onClick={() => setActive(1)}
+      >
         <Link to="/district/school-rankings">School Rankings</Link>
         <TbReportAnalytics />
-      </div>
-      <div
+      </div> */}
+      {/* <div
         className={
           active === 5 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
         }
@@ -56,8 +65,8 @@ const DistrictSidebar = () => {
       >
         <Link to="/district/reports">Review School Reports</Link>
         <BsFillMapFill />
-      </div>
-      <div
+      </div> */}
+      {/* <div
         className={
           active === 2 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
         }
@@ -65,8 +74,8 @@ const DistrictSidebar = () => {
       >
         <Link to="/district/funds">Funds Management</Link>
         <BsFillMapFill />
-      </div>
-      <div
+      </div> */}
+      {/* <div
         className={
           active === 3 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
         }
@@ -74,7 +83,7 @@ const DistrictSidebar = () => {
       >
         <Link to="/district/policies">Policies/Schemes</Link>
         <FaUsersCog />
-      </div>
+      </div> */}
       <div
         className={
           active === 4 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`

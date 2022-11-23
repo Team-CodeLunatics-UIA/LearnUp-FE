@@ -28,6 +28,7 @@ import DistrictSchoolRankings from "./Dashboard/District/DistrictSchoolRankings"
 import DistrictVisualizations from "./Dashboard/District/DistrictVisualizations";
 import DistrictFunds from "./Dashboard/District/DistrictFunds";
 import DistrictPolicies from "./Dashboard/District/DistrictPolicies";
+import DistrictMapView from "./Dashboard/District/DistrictMapView";
 
 // STUDENT
 import StudentLayout from "./Dashboard/Student/StudentLayout";
@@ -90,6 +91,7 @@ export {
   DistrictVisualizations,
   DistrictFunds,
   DistrictPolicies,
+  DistrictMapView,
   SchoolOverview,
   SchoolReports,
   SendReports,

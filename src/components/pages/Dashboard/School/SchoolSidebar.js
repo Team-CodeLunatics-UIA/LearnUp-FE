@@ -34,7 +34,7 @@ const SchoolSidebar = ({}) => {
         className={
           active === 0 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
         }
-        onClick={() => setActive(1)}
+        onClick={() => setActive(0)}
       >
         <Link to="/school/overview">Overview</Link>
         <TbReportAnalytics />
@@ -45,7 +45,7 @@ const SchoolSidebar = ({}) => {
         }
         onClick={() => setActive(1)}
       >
-        <Link to="/school/reports">Send Progress Reports</Link>
+        <Link to="/school/create">Send Reports</Link>
         <TbReportAnalytics />
       </div>
       <div
@@ -54,18 +54,18 @@ const SchoolSidebar = ({}) => {
         }
         onClick={() => setActive(2)}
       >
-        <Link to="/school/feedback">Feedback Analyzer</Link>
+        <Link to="/school/visualization">Visualizations</Link>
         <BsFillMapFill />
       </div>
-      <div
+      {/* <div
         className={
           active === 3 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
         }
         onClick={() => setActive(3)}
       >
-        <Link to="/school/funds">Requirements</Link>
+        <Link to="/school/requirements">Requirements</Link>
         <FaUsersCog />
-      </div>
+      </div> */}
     </div>
   );
 };

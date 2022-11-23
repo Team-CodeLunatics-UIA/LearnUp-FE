@@ -33,6 +33,7 @@ import {
   SendReports,
   ReviewFeedbacks,
   SchoolRequirements,
+  DistrictMapView,
   // Overview,
   // StaffReports,
   // NationalView,
@@ -70,6 +71,7 @@ function App() {
             <DistrictRoute exact path="/district/reports" component={SchoolReports} />
             <DistrictRoute exact path="/district/funds" component={DistrictFunds} />
             <DistrictRoute exact path="/district/policies" component={DistrictPolicies} />
+            <DistrictRoute exact path="/district/map" component={DistrictMapView} />
             <DistrictRoute
               exact
               path="/district/visualizations"
