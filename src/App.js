@@ -28,6 +28,11 @@ import {
   DistrictVisualizations,
   DistrictFunds,
   DistrictPolicies,
+  SchoolReports,
+  SchoolOverview,
+  SendReports,
+  ReviewFeedbacks,
+  SchoolRequirements,
   // Overview,
   // StaffReports,
   // NationalView,
@@ -62,6 +67,7 @@ function App() {
               path="/district/school-rankings"
               component={DistrictSchoolRankings}
             />
+            <DistrictRoute exact path="/district/reports" component={SchoolReports} />
             <DistrictRoute exact path="/district/funds" component={DistrictFunds} />
             <DistrictRoute exact path="/district/policies" component={DistrictPolicies} />
             <DistrictRoute
@@ -69,6 +75,12 @@ function App() {
               path="/district/visualizations"
               component={DistrictVisualizations}
             />
+
+            {/* SCHOOL */}
+            <SchoolRoute exact path="/school/overview" component={SchoolOverview} />
+            <SchoolRoute exact path="/school/create" component={SendReports} />
+            <SchoolRoute exact path="/school/feedbacks" component={ReviewFeedbacks} />
+            <SchoolRoute exact path="/school/requirements" component={SchoolRequirements} />
 
             {/* STUDENT */}
             <StudentRoute exact path="/student/news" component={StudentNews} />

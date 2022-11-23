@@ -45,7 +45,11 @@ import TeacherPredictions from "./Dashboard/Teacher/TeacherPredictions";
 
 // SCHOOL STAFF
 import SchoolLayout from "./Dashboard/School/SchoolLayout";
-import SendReports from "./Dashboard/SendReports";
+import SchoolOverview from "./Dashboard/School/SchoolOverview";
+import SchoolReports from "./Dashboard/District/SchoolReports/SchoolReports";
+import SendReports from "./Dashboard/School/SendReports";
+import ReviewFeedbacks from "./Dashboard/School/ReviewFeedbacks";
+import SchoolRequirements from "./Dashboard/School/SchoolRequirements";
 
 import Page404 from "./Page404";
 
@@ -86,4 +90,9 @@ export {
   DistrictVisualizations,
   DistrictFunds,
   DistrictPolicies,
+  SchoolOverview,
+  SchoolReports,
+  SendReports,
+  ReviewFeedbacks,
+  SchoolRequirements,
 };

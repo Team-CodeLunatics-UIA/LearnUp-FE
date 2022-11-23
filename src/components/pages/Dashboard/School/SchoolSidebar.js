@@ -45,7 +45,7 @@ const SchoolSidebar = ({}) => {
         }
         onClick={() => setActive(1)}
       >
-        <Link to="/school/feedback">Send Progress Reports</Link>
+        <Link to="/school/reports">Send Progress Reports</Link>
         <TbReportAnalytics />
       </div>
       <div

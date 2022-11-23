@@ -50,6 +50,15 @@ const DistrictSidebar = () => {
       </div>
       <div
         className={
+          active === 5 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
+        }
+        onClick={() => setActive(5)}
+      >
+        <Link to="/district/reports">Review School Reports</Link>
+        <BsFillMapFill />
+      </div>
+      <div
+        className={
           active === 2 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
         }
         onClick={() => setActive(2)}
