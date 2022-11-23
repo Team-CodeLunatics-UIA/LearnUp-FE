@@ -1,7 +1,6 @@
 import Reac, { userContext } from "react";
 import { Redirect, Route } from "react-router-dom";
 import Loader from "../pages/Loader";
-import { UserLayout } from "../pages";
 
 // import authContext from "context/auth/authContext";
 

@@ -11,7 +11,7 @@ import { VscFeedback } from "react-icons/vsc";
 import LearnUpLogo from "../../../assets/icons/learnup2.jpg";
 import styles from "../../../styles/Dashboard/sidebar.module.css";
 
-const Sidebar = () => {
+const Sidebar = ({}) => {
   //   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   const [active, setActive] = useState(0);
