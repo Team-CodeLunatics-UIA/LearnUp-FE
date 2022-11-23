@@ -8,6 +8,10 @@ import LearnUpLogo from "../../../assets/icons/learnup2.jpg";
 import MoELogo from "../../../assets/icons/MoE.jpg";
 
 import styles from "../../../styles/Home/HomeNavbar.module.css";
+import GoogleTranslate from "./GoogleTranslate";
+
+
+
 
 const HomeNavbar = () => {
   // const { isAuthenticated, user } = useContext(authContext);
@@ -41,6 +45,7 @@ const HomeNavbar = () => {
     }
   };
 
+ 
   return (
     <>
       <div className={styles.top_Default_Bar}>
@@ -62,7 +67,13 @@ const HomeNavbar = () => {
             </div>
 
             <div className={styles.language_change}>
-              <div id="google_translate_element"></div>
+              <div id="google_translate_element">
+                <div id="google_translate_element"></div>
+                
+                
+                <GoogleTranslate />
+               
+              </div>
             </div>
           </div>
         </div>
