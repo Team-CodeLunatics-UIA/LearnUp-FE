@@ -45,8 +45,8 @@ const SchoolSidebar = ({}) => {
         }
         onClick={() => setActive(1)}
       >
-        <Link to="/school/create">Send Reports</Link>
-        <TbReportAnalytics />
+        <Link to="/school/create">Add School Details</Link>
+        <FaUsersCog />
       </div>
       <div
         className={
@@ -54,8 +54,8 @@ const SchoolSidebar = ({}) => {
         }
         onClick={() => setActive(2)}
       >
-        <Link to="/school/visualization">Visualizations</Link>
-        <BsFillMapFill />
+        <Link to="/school/visualizations">Visualizations</Link>
+        <TbReportAnalytics />
       </div>
       {/* <div
         className={

@@ -51,6 +51,7 @@ import SchoolReports from "./Dashboard/District/SchoolReports/SchoolReports";
 import SendReports from "./Dashboard/School/SendReports";
 import ReviewFeedbacks from "./Dashboard/School/ReviewFeedbacks";
 import SchoolRequirements from "./Dashboard/School/SchoolRequirements";
+import SchoolVisualization from "./Dashboard/School/SchoolVisualization";
 
 import Page404 from "./Page404";
 
@@ -97,4 +98,5 @@ export {
   SendReports,
   ReviewFeedbacks,
   SchoolRequirements,
+  SchoolVisualization,
 };

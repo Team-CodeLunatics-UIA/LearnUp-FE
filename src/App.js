@@ -34,6 +34,7 @@ import {
   ReviewFeedbacks,
   SchoolRequirements,
   DistrictMapView,
+  SchoolVisualization,
   // Overview,
   // StaffReports,
   // NationalView,
@@ -83,6 +84,7 @@ function App() {
             <SchoolRoute exact path="/school/create" component={SendReports} />
             <SchoolRoute exact path="/school/feedbacks" component={ReviewFeedbacks} />
             <SchoolRoute exact path="/school/requirements" component={SchoolRequirements} />
+            <SchoolRoute exact path="/school/visualizations" component={SchoolVisualization} />
 
             {/* STUDENT */}
             <StudentRoute exact path="/student/news" component={StudentNews} />
