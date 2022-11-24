@@ -5,12 +5,14 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import axios from "axios";
 
 import styles from "../../../../../styles/Dashboard/Teachers/forms.module.css";
+import { toast } from "react-toastify";
 
 const initialState = {
   name: "",
-  class: "",
+  classs: "",
   rollno: "",
   age: "",
   gender: "",
@@ -24,20 +26,39 @@ const AddExamReports = () => {
   const [tab, setTab] = useState(1);
   const [examReports, setExamReports] = useState(initialState);
 
-  const handleOnchange = (id, e) => {
+  const handleOnchange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    console.log(name, ":", value);
+    // console.log(name, ":", value);
     // const examReports = examReports.map((report) => {
     // if (id === report.id) {
     if (name === "maths" || name === "physics" || name === "chemistry" || name === "attendance") {
-      setExamReports({ ...examReports, [name]: [...name, value] });
+      let arr = examReports[name];
+      arr.push(value);
+      setExamReports({ ...examReports, [name]: arr });
+    } else if (name === "class") {
+      setExamReports({ ...examReports, ["classs"]: value });
     } else {
       setExamReports({ ...examReports, [name]: value });
     }
+
+    console.log(examReports);
     // }
     // return report;
     // });
+  };
+
+  const onSubmit = async () => {
+    try {
+      const res = await axios.post("http://localhost:5000/uploadstudentdata", examReports);
+      console.log(res);
+      if (res.status === 200) {
+        toast.success("Student Data Added Successfully");
+        setExamReports(initialState);
+      }
+    } catch (err) {
+      toast.error("Something went Wrong!");
+    }
   };
 
   return (
@@ -74,7 +95,7 @@ const AddExamReports = () => {
         </div>
       )}
       {tab === 2 && (
-        <div classname={styles.formContainer}>
+        <div className={styles.formContainer}>
           <InputGroup className="mb-3" style={{ width: "55%" }}>
             <InputGroup.Text id="basic-addon1">Name</InputGroup.Text>
             <Form.Control placeholder="Name" name="name" onChange={(e) => handleOnchange(e)} />
@@ -181,7 +202,7 @@ const AddExamReports = () => {
                   name="attendance"
                   onChange={(e) => handleOnchange(e)}
                 />
-              </Col>  
+              </Col>
               <Col xs="3">
                 <Form.Control
                   placeholder="Mar"
@@ -191,7 +212,7 @@ const AddExamReports = () => {
               </Col>
             </Row>
           </InputGroup>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={onSubmit}>
             Submit
           </Button>
         </div>

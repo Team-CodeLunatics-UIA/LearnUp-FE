@@ -1,8 +1,8 @@
 import { useState, useContext, useEffect, Fragment } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { toast } from "react-toastify";
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
@@ -58,7 +58,10 @@ const Login = () => {
       const res = await axios.post("http://localhost:5000/login", user, config);
 
       JSON.parse(localStorage.setItem("user", JSON.stringify(res.data.data)));
-      history.push("/teacher/student-dashboard");
+
+      setTimeout(() => {
+        history.push("/teacher/student-dashboard");
+      }, 100);
       // if (res.data.data.user.status === "teacher") history?.push("/teacher/student-dashboard");
       // else if (res.data.data.user.status === "district") {
       //   history?.push("/distict/overview");

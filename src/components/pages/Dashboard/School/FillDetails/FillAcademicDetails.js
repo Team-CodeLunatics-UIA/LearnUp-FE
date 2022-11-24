@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -8,6 +8,10 @@ import Row from "react-bootstrap/Row";
 import styles from "../../../../../styles/Dashboard/Teachers/forms.module.css";
 
 const FillAcademicDetails = () => {
+  const [schoolData, setSchoolData] = useState({
+    
+  });
+
   return (
     <div className={styles.container}>
       <h2 style={{}}>Fill Academic Details</h2>

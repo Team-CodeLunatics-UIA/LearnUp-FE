@@ -6,6 +6,16 @@ import AddExamReports from "./AddExamReports";
 
 const TeacherAddDetails = () => {
   const [tab, setTab] = useState(1);
+  const [studentData, setStudentData] = useState({
+    name: "",
+    classs: "",
+    rollno: "",
+    age: "",
+    gender: "",
+    maths: [],
+    chemistry: [],
+    physics: [],
+  });
 
   return (
     <>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AiFillPieChart } from "react-icons/ai";
 import { BsFillMapFill } from "react-icons/bs";
 import { TbReportAnalytics } from "react-icons/tb";
+import { FaUsersCog } from "react-icons/fa";
 
 import LearnUpLogo from "../../../../assets/icons/learnup2.jpg";
 import styles from "../../../../styles/Dashboard//sidebar.module.css";
@@ -53,26 +54,16 @@ const TeacherSidebar = ({}) => {
       >
         <Link to="/teacher/overview">Overview</Link>
         <TbReportAnalytics />
-      </div>
+      </div> */}
       <div
         className={
-          active === 1 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
+          active === 2 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
         }
-        onClick={() => setActive(1)}
-      >
-        <Link to="/teacher/feedback">Feedback Analyzer</Link>
-        <TbReportAnalytics />
-      </div>
-
-      <div
-        className={
-          active === 3 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
-        }
-        onClick={() => setActive(3)}
+        onClick={() => setActive(2)}
       >
         <Link to="/teacher/student-predictions">Student Scores Prediction</Link>
         <FaUsersCog />
-      </div> */}
+      </div>
     </div>
   );
 };

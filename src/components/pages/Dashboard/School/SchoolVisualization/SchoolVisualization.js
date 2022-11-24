@@ -27,7 +27,7 @@ const SchoolVisualization = () => {
               setTab(2);
             }}
           >
-            Passing Students Scores Ratio
+            Students v/s Attendance Plot
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
@@ -66,9 +66,37 @@ const SchoolVisualization = () => {
           ></tableau-viz>
         </>
       )}
-      {tab === 2 && <>Graph with levels (score %) with count of students passing in each subject</>}
-      {tab === 3 && <>Suggestions</>}
-      {tab === 4 && <>Alerts</>}
+      {tab === 2 && (
+        <>
+          Graph with levels (score %) with average attendance of students
+          <tableau-viz
+            id="tableauViz"
+            src="https://prod-useast-a.online.tableau.com/#/site/learnup/views/hjfdsf/Sheet3?:iid=5"
+            device="desktop"
+            hide-tabs
+          ></tableau-viz>
+        </>
+      )}
+      {tab === 3 && (
+        <>
+          <p>Suggestions</p>
+          <ul>
+            <li>
+              Students who are not attending classes having issues with teacher teaching methods
+            </li>
+            <li>Students not attending classes having issues with curriculum changes</li>
+            <li>
+              Students not attending classes having issues accessing the school resources to help
+              with their needs
+            </li>
+          </ul>
+        </>
+      )}
+      {tab === 4 && (
+        <>
+          <p>Alerts</p>
+        </>
+      )}
     </>
   );
 };
