@@ -15,9 +15,17 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineSearch, AiFillBell } from "react-icons/ai";
 
 import styles from "../../../styles/Dashboard/userNavbar.module.css";
+import { useHistory } from "react-router-dom";
 
-const UserNavbar = ({ user, logoutHandler, toggleShowSidebar }) => {
+const UserNavbar = ({ toggleShowSidebar }) => {
   // console.log(props);
+  const history = useHistory();
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    history.push("/");
+  };
+
   return (
     <Navbar className={styles.container}>
       <Container className={styles.navbarContainer}>
@@ -51,7 +59,7 @@ const UserNavbar = ({ user, logoutHandler, toggleShowSidebar }) => {
                 <NavDropdown.Item href="#">Help</NavDropdown.Item>
                 <NavDropdown.Item href="#">Settings</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
               </NavDropdown>
             }
           </Nav.Item>

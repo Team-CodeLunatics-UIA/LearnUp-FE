@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -10,13 +10,12 @@ import MoELogo from "../../../assets/icons/MoE.jpg";
 import styles from "../../../styles/Home/HomeNavbar.module.css";
 import GoogleTranslate from "./GoogleTranslate";
 
-
-
-
 const HomeNavbar = () => {
   // const { isAuthenticated, user } = useContext(authContext);
   const [showModal, setShowModal] = useState(false);
   const [isSignupActive, setSignupActive] = useState(false);
+  const history = useHistory();
+  const [user, setUser] = useState(null);
 
   const modalClickHandler = (e) => {
     e.stopPropagation();
@@ -33,6 +32,13 @@ const HomeNavbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      setUser(JSON.parse(localStorage.getItem("user")));
+      // setUser(JSON.parse(localStorage.getItem("user")));
+    }
+  }, []);
+
   const handleChange = (type) => {
     const htmlEl = document.querySelector("html");
     const computedFontSize = Number(window.getComputedStyle(htmlEl).fontSize.split("px")[0]);
@@ -45,7 +51,6 @@ const HomeNavbar = () => {
     }
   };
 
- 
   return (
     <>
       <div className={styles.top_Default_Bar}>
@@ -69,10 +74,8 @@ const HomeNavbar = () => {
             <div className={styles.language_change}>
               <div id="google_translate_element">
                 <div id="google_translate_element"></div>
-                
-                
+
                 <GoogleTranslate />
-               
               </div>
             </div>
           </div>
@@ -106,37 +109,12 @@ const HomeNavbar = () => {
             </ul>
 
             <ul className={styles.links__auth}>
-              <li className={styles.login}>
-                {/* <Link to="/login">{isAuthenticated ? "Dashboard" : "Login"}</Link> */}
-                <Link to="/login">Login</Link>
-              </li>
-              {/* {!isAuthenticated && ( */}
-              <li>
-                <div class={styles.dropdown}>
-                  <button
-                    onClick={() => setSignupActive(!isSignupActive)}
-                    className={styles.dropbtn}
-                  >
-                    <b>Sign Up</b>
-                  </button>
-                  <div
-                    id="myDropdown"
-                    style={{ display: !isSignupActive ? "none" : "block" }}
-                    className={styles.dropdown__content}
-                  >
-                    <ul>
-                      <li>
-                        <Link to="/signup">Admin/Officer</Link>
-                      </li>
-                      <li>
-                        <Link to="/school/signup">School Official</Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                {/* <Link to="/signup">SignUp</Link> */}
-              </li>
-              {/* )} */}
+              <li className={styles.login}>{!user && <Link to="/login">Login</Link>}</li>
+              {!user && (
+                <li className={styles.login}>
+                  <Link to="/signup">Signup</Link>
+                </li>
+              )}
             </ul>
             <div className={styles.phoneMenu} onClick={modalClickHandler}>
               <GiHamburgerMenu size={30} onClick={() => setShowModal((curr) => !curr)} />
@@ -153,7 +131,7 @@ const HomeNavbar = () => {
                   </li>
                   {/* {!isAuthenticated && ( */}
                   <li>
-                    <Link to="/signup">Officer Signup</Link>
+                    <Link to="/login">{user ? "Dashboard" : "Login"}</Link>
                     <Link to="/school/signup">Students Signup</Link>
                   </li>
                   {/* )} */}

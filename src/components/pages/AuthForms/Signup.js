@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Select from "react-select";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 import Logo from "../../../assets/icons/learnup.png";
 import HomeNavbar from "../Navbar/HomeNavbar";
 import Footer from "../Footer";
 
 import styles from "../../../styles/Forms/Signup.module.css";
-import authContext from "../../../context/auth/authContext";
+// import authContext from "../../../context/auth/authContext";
 import { roleOptions } from "../../../Utils/constants";
 
 const Signup = (props) => {
@@ -18,38 +19,72 @@ const Signup = (props) => {
   const [registering, setRegistering] = useState(false);
 
   const [user, setUser] = useState({
-    licenceID: "",
+    id: "",
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
-    pin: "",
   });
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const { name, email, password, confirmPassword, licenceID, pin } = user;
-  const { signup, registered, error, clearError } = useContext(authContext);
+  const { name, email, password, confirmPassword, id } = user;
+  // const { signup, registered, error, clearError } = useContext(authContext);
 
   useEffect(() => {
     // if (isAuthenticated === true) {
     //   if (user.role === "ICCRUser") props.history?.push("user/events");
     //   else props.history?.push("user/dashboard");
     // }
-    if (registered) {
-      toast.info(
-        "A Verification Link has been sent to your email address. Please verify to continue"
-      );
-      props.history.push("/login");
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      props.history.push("/");
     }
-  }, [registered]);
+  }, []);
 
-  useEffect(() => {
-    if (error) {
+  // useEffect(() => {
+  //   if (error) {
+  //     setRegistering(false);
+  //     toast.error(error);
+  //     clearError();
+  //   }
+  // }, [error]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setRegistering(true);
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
       setRegistering(false);
-      toast.error(error);
-      clearError();
+      return;
     }
-  }, [error]);
+    if (selectedOption === null) {
+      toast.error("Please select a role");
+      setRegistering(false);
+      return;
+    }
+    try {
+      const newUser = {
+        name,
+        email,
+        password,
+        status: selectedOption.value,
+        id,
+      };
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const res = await axios.post("http://localhost:5000/signup", newUser, config);
+      // localStorage.setItem("user", JSON.stringify(...res.data.data));
+      toast.success("Registration successful");
+      props.history.push("/");
+      setRegistering(false);
+    } catch (err) {
+      toast.error(err.response.data.error);
+      setRegistering(false);
+    }
+  };
 
   const togglePassword = (e) => {
     e.preventDefault();
@@ -63,25 +98,6 @@ const Signup = (props) => {
 
   const onChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!selectedOption) {
-      toast.error("Please select a role");
-      return;
-    }
-    if (password !== confirmPassword) {
-      toast.error("Both Passwords don't match!");
-      return;
-    }
-    if (isNaN(Number(pin))) {
-      toast.error("Pin must be a number");
-      return;
-    }
-    setRegistering(true);
-    await signup({ ...user, role: selectedOption.value, pin: +pin });
-    setRegistering(false);
   };
 
   return (
@@ -100,9 +116,9 @@ const Signup = (props) => {
               <label htmlFor="id">Licence ID</label>
               <input
                 type="text"
-                id="licenceID"
-                name="licenceID"
-                value={licenceID}
+                id="id"
+                name="id"
+                value={id}
                 onChange={onChange}
                 placeholder="Licence ID"
                 required
@@ -200,25 +216,11 @@ const Signup = (props) => {
                 placeholder="Select your role"
               />
             </div>
-            {selectedOption && selectedOption?.value !== "ICCRUser" && (
-              <div className={styles.inputContainer}>
-                <input
-                  type="text"
-                  id="pin"
-                  name="pin"
-                  value={pin}
-                  maxLength="4"
-                  minLength="4"
-                  onChange={onChange}
-                  placeholder="Enter 4 digit PIN"
-                  required
-                />
-              </div>
-            )}
             <button
               type="submit"
               className={styles.submit}
-              // disabled={registering}
+              disabled={registering}
+              onClick={handleSubmit}
             >
               {registering ? "Registering.." : "Sign Up"}
             </button>

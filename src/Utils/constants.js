@@ -1,9 +1,5 @@
 export const roleOptions = [
   {
-    value: "ministry",
-    label: "Ministry Official",
-  },
-  {
     value: "state",
     label: "State Official",
   },

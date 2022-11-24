@@ -1,18 +1,19 @@
 import { useState, useContext, useEffect, Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 import Logo from "../../../assets/icons/learnup.png";
 import HomeNavbar from "../Navbar/HomeNavbar";
 import Footer from "../Footer";
 
 import styles from "../../../styles/Forms/Signup.module.css";
-import authContext from "../../../context/auth/authContext";
+// import authContext from "../../../context/auth/authContext";
 
-const Login = (props) => {
+const Login = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [loggingIn, setLoggingIn] = useState(false);
   const [user, setUser] = useState({
@@ -20,14 +21,20 @@ const Login = (props) => {
     password: "",
   });
   const { email, password } = user;
-  const { isAuthenticated, user: loggedUser, error, login, clearError } = useContext(authContext);
+  const history = useHistory();
+  // const existingUser = JSON.parse(localStorage.getItem("user"));
+  // const { isAuthenticated, user: loggedUser, error, login, clearError } = useContext(authContext);
 
-  useEffect(() => {
-    if (isAuthenticated === true) {
-      if (user.role === "student") props.history?.push("/student/feedback");
-      else props.history?.push("/admin/overview");
-    }
-  }, [isAuthenticated, props.history]);
+  // useEffect(() => {
+  //   if (existingUser) {
+  //     if (existingUser.status === "teacher") props.history?.push("/teacher/student-dashboard");
+  //     else if (existingUser.status === "district") {
+  //       props.history?.push("/distict/overview");
+  //     } else if (existingUser.status === "state") {
+  //       props.history?.push("/state/overview");
+  //     }
+  //   }
+  // }, []);
 
   const togglePassword = (e) => {
     e.preventDefault();
@@ -40,23 +47,39 @@ const Login = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setLoggingIn(true);
     try {
-      await login(user);
-      if (!error) toast.success("Logged in Successfully");
+      // await login(user);
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const res = await axios.post("http://localhost:5000/login", user, config);
+
+      JSON.parse(localStorage.setItem("user", JSON.stringify(res.data.data)));
+      history.push("/teacher/student-dashboard");
+      // if (res.data.data.user.status === "teacher") history?.push("/teacher/student-dashboard");
+      // else if (res.data.data.user.status === "district") {
+      //   history?.push("/distict/overview");
+      // } else if (res.data.data.user.status === "school") {
+      //   history?.push("/school/overview");
+      // }
+      toast.success("Logged in Successfully");
+      setLoggingIn(false);
     } catch (err) {
-      toast.error(error);
+      toast.error(err);
+      setLoggingIn(false);
     }
   };
 
-  useEffect(() => {
-    if (error) {
-      setLoggingIn(false);
-      toast.error(error);
-      clearError();
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     setLoggingIn(false);
+  //     toast.error(error);
+  //     clearError();
+  //   }
+  // }, [error]);
 
   return (
     <Fragment>
@@ -103,7 +126,12 @@ const Login = (props) => {
                 </div>
               </div>
             </div>
-            <button type="submit" className={styles.submit} disabled={loggingIn}>
+            <button
+              type="submit"
+              className={styles.submit}
+              disabled={loggingIn}
+              onClick={handleSubmit}
+            >
               {loggingIn ? "Logging In.." : "Log In"}
             </button>
             <div className={styles.form__footer}>

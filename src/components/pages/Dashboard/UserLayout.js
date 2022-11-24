@@ -32,7 +32,7 @@ const UserLayout = ({ Component }) => {
     <div className={styles.container}>
       {showSidebar && <Sidebar />}
       <div className={styles.mainWrapper} style={{ width: !showSidebar ? "100%" : "80%" }}>
-        <UserNavbar user={null} logoutHandler={logoutHandler} toggleShowSidebar={toggleShowSidebar} />
+        <UserNavbar toggleShowSidebar={toggleShowSidebar} />
         <div className={styles.component}>
           <Component user={null} />
         </div>
