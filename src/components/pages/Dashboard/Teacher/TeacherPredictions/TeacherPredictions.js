@@ -22,7 +22,7 @@ const TeacherPredictions = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
-            eventkey="list"
+            href="/list"
             onClick={(e) => {
               e.preventDefault();
               setTab(2);

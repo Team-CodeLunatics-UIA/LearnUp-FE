@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect, Fragment } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { toast } from "react-toastify";
@@ -59,21 +59,21 @@ const Login = () => {
 
       JSON.parse(localStorage.setItem("user", JSON.stringify(res.data.data)));
 
-      setTimeout(() => {
-        history.push("/teacher/student-dashboard");
-      }, 100);
-      // if (res.data.data.user.status === "teacher") history?.push("/teacher/student-dashboard");
-      // else if (res.data.data.user.status === "district") {
-      //   history?.push("/distict/overview");
-      // } else if (res.data.data.user.status === "school") {
-      //   history?.push("/school/overview");
-      // }
+      //
       toast.success("Logged in Successfully");
       setLoggingIn(false);
     } catch (err) {
       toast.error(err);
       setLoggingIn(false);
     }
+    if (localStorage.getItem("user").status === "teacher")
+      history?.push("/teacher/student-dashboard");
+    else if (localStorage.getItem("user").status === "district") {
+      history?.push("/distict/overview");
+    } else if (localStorage.getItem("user").status === "school") {
+      history?.push("/school/overview");
+    }
+    history?.push("/district/overview");
   };
 
   // useEffect(() => {
