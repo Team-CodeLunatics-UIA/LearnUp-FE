@@ -28,7 +28,7 @@ import DistrictSchoolRankings from "./Dashboard/District/DistrictSchoolRankings"
 import DistrictVisualizations from "./Dashboard/District/DistrictVisualizations";
 import DistrictFunds from "./Dashboard/District/DistrictFunds";
 import DistrictPolicies from "./Dashboard/District/DistrictPolicies";
-import DistrictMapView from "./Dashboard/District/DistrictMapView";
+import DistrictMapView from "./Dashboard/District/MapView/DistrictMapView";
 
 // STUDENT
 import StudentLayout from "./Dashboard/Student/StudentLayout";
@@ -49,10 +49,10 @@ import TeacherAddDetails from "./Dashboard/Teacher/TeacherAddDetails/TeacherAddD
 import SchoolLayout from "./Dashboard/School/SchoolLayout";
 import SchoolOverview from "./Dashboard/School/SchoolOverview";
 import SchoolReports from "./Dashboard/District/SchoolReports/SchoolReports";
-import SendReports from "./Dashboard/School/SendReports";
+import SendReports from "./Dashboard/School/FillDetails/SendReports";
 import ReviewFeedbacks from "./Dashboard/School/ReviewFeedbacks";
 import SchoolRequirements from "./Dashboard/School/SchoolRequirements";
-import SchoolVisualization from "./Dashboard/School/SchoolVisualization";
+import SchoolVisualization from "./Dashboard/School/SchoolVisualization/SchoolVisualization";
 
 import Page404 from "./Page404";
 

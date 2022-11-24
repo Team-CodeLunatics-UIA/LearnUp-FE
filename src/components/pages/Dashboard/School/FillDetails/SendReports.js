@@ -2,6 +2,9 @@ import React, { useState } from "react";
 
 import Nav from "react-bootstrap/Nav";
 
+import FillAcademicDetails from "./FillAcademicDetails";
+import FillInfraDetails from "./FillInfraDetails";
+
 const SendReports = () => {
   const [tab, setTab] = useState(1);
 
@@ -33,14 +36,14 @@ const SendReports = () => {
       </Nav>
       {tab === 1 && (
         <>
-          Total Enrollments, Total Dropouts, Total Passouts, Education Board, Elementary
-          Enrollments, Secondary Enrollments, High Sec. Enrollments.
+          <FillAcademicDetails />
         </>
       )}
       {tab === 2 && (
         <>
           Proper Sanitation Facilities, Drinking Water, Electricity, Library, Computer Lab, Science,
-          Books, Equipments, Furniture, Playground, Sports, etc.
+          Books, Equipments, Fsurniture, Playground, Sports, etc.
+          <FillInfraDetails />
         </>
       )}
     </>

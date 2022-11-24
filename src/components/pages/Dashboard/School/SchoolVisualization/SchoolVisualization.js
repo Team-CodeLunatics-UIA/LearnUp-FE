@@ -15,7 +15,7 @@ const SchoolVisualization = () => {
               setTab(1);
             }}
           >
-            Students Subjec-wise Score
+            Students Subject-wise Score
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
@@ -58,6 +58,12 @@ const SchoolVisualization = () => {
           Student Subject-wise Score Distribution: LineChart, LevelBar Graph (1 subject [count vs
           Months [Bars - Pass, Fail (Threshold indicator - Gap)]]), LevelBar Graph (1 month [count
           vs subjects [Bars - Pass, Fail]] )
+          <tableau-viz
+            id="tableauViz"
+            src="https://prod-useast-a.online.tableau.com/#/site/learnup/views/monthlyperformance/Sheet1?:iid=1"
+            device="desktop"
+            hide-tabs
+          ></tableau-viz>
         </>
       )}
       {tab === 2 && <>Graph with levels (score %) with count of students passing in each subject</>}

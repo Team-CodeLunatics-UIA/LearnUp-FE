@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import Nav from "react-bootstrap/Nav";
 
+import EnrollmentHeat from "./EnrollmentHeat";
+
 const DistrictMapView = () => {
   const [tab, setTab] = useState(1);
 
@@ -42,7 +44,11 @@ const DistrictMapView = () => {
           </Nav.Link>
         </Nav.Item>
       </Nav>
-      {tab === 1 && <>DistrictMapView</>}
+      {tab === 1 && (
+        <>
+          <EnrollmentHeat />
+        </>
+      )}
       {tab === 2 && <>Gender Distribution and ClassWise Net Enrollment Rate</>}
       {tab === 3 && <>Suggestions</>}
     </>
