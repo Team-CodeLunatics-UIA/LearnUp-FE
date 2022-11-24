@@ -6,28 +6,62 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
+import { toast } from "react-toastify";
+
 import styles from "../../../../../styles/Dashboard/Teachers/forms.module.css";
+import axios from "axios";
 
 const initialState = {
   id: "",
   fullname: "",
   rollno: "",
   present: "",
+  class: "",
+  date: "",
 };
+
 const AddAttendance = () => {
+  const [common, setCommon] = useState({
+    class: "",
+    date: "",
+  });
   const [students, setStudents] = useState([]);
+
+  const handleCommonChange = (e) => {
+    setCommon({ ...common, [e.target.name]: e.target.value });
+  };
 
   const handleOnchange = (id, e) => {
     e.preventDefault();
     const { name, value } = e.target;
     console.log(name, ":", value);
+
     const updatedStudents = students.map((student) => {
       if (id === student.id) {
-        student[name] = value;
+        if (name === "present") {
+          student.present = value === "on" ? true : false;
+        } else student[name] = value;
+        student["class"] = common.class;
+        student["date"] = common.date;
       }
       return student;
     });
+
+    console.log(updatedStudents);
     setStudents(updatedStudents);
+  };
+
+  const handleSubmit = async (e) => {
+    try {
+      const res = await axios.post("http://localhost:5000/", students);
+      console.log(res);
+      if (res.status === 200) {
+        toast.success("Student Data Added Successfully");
+        setStudents(initialState);
+      }
+    } catch (err) {
+      toast.error("Something went Wrong!");
+    }
   };
 
   const handleAddNewStudent = () => {
@@ -75,13 +109,17 @@ const AddAttendance = () => {
             <Col lg={4}>
               <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">Class</InputGroup.Text>
-                <Form.Control placeholder="Class" />
+                <Form.Control
+                  placeholder="Class"
+                  name="class"
+                  onChange={(e) => handleCommonChange(e)}
+                />
               </InputGroup>
             </Col>
             <Col lg={4}>
               <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">Date</InputGroup.Text>
-                <Form.Control type="date" />
+                <Form.Control type="date" name="date" onChange={(e) => handleCommonChange(e)} />
               </InputGroup>
             </Col>
           </Row>
@@ -109,6 +147,7 @@ const AddAttendance = () => {
                   </InputGroup.Text>
                   <Form.Control
                     placeholder="Roll No."
+                    name="rollno"
                     onChange={(e) => {
                       handleOnchange(student?.id, e);
                     }}

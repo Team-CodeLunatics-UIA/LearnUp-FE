@@ -115,6 +115,11 @@ const HomeNavbar = () => {
                   <Link to="/signup">Signup</Link>
                 </li>
               )}
+              {user && (
+                <li className={styles.login}>
+                  <Link to="/district/overview">Dashboard</Link>
+                </li>
+              )}
             </ul>
             <div className={styles.phoneMenu} onClick={modalClickHandler}>
               <GiHamburgerMenu size={30} onClick={() => setShowModal((curr) => !curr)} />

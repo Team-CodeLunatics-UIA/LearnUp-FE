@@ -34,6 +34,17 @@ const DistrictMapView = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
+            eventkey="genderclass"
+            onClick={(e) => {
+              e.preventDefault();
+              setTab(2);
+            }}
+          >
+            Infrastructure Categorywise Distribution
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
             eventkey="suggestions"
             onClick={(e) => {
               e.preventDefault();

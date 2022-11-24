@@ -7,10 +7,10 @@ const TeacherStudentDashboard = () => {
 
   return (
     <>
-      <Nav variant="tabs" defaultActiveKey="/dropout" style={{ marginBottom: "10px" }}>
+      <Nav variant="tabs" defaultActiveKey="/dashboard" style={{ marginBottom: "10px" }}>
         <Nav.Item>
           <Nav.Link
-            eventkey="dashboard"
+            href="/dashboard"
             onClick={(e) => {
               e.preventDefault();
               setTab(1);
@@ -21,7 +21,7 @@ const TeacherStudentDashboard = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
-            eventkey="profile"
+            href="/profile"
             onClick={(e) => {
               e.preventDefault();
               setTab(2);
@@ -32,7 +32,7 @@ const TeacherStudentDashboard = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
-            eventkey="time"
+            href="/time"
             onClick={(e) => {
               e.preventDefault();
               setTab(3);

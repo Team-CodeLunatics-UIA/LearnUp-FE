@@ -42,7 +42,7 @@ import TeacherLayout from "./Dashboard/Teacher/TeacherLayout";
 import TeacherOverview from "./Dashboard/Teacher/TeacherOverview";
 import TeacherFeedback from "./Dashboard/Teacher/TeacherFeedback";
 import TeacherStudentDashboard from "./Dashboard/Teacher/TeacherStudentDashboard";
-import TeacherPredictions from "./Dashboard/Teacher/TeacherPredictions";
+import TeacherPredictions from "./Dashboard/Teacher/TeacherPredictions/TeacherPredictions";
 import TeacherAddDetails from "./Dashboard/Teacher/TeacherAddDetails/TeacherAddDetails";
 
 // SCHOOL STAFF

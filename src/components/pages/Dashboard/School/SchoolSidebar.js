@@ -59,6 +59,15 @@ const SchoolSidebar = ({}) => {
       </div>
       {/* <div
         className={
+          active === 2 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
+        }
+        onClick={() => setActive(2)}
+      >
+        <Link to="/school/predictions">Predictions</Link>
+        <FaUsersCog />
+      </div> */}
+      {/* <div
+        className={
           active === 3 ? `${styles.sidebarItem} ${styles.current}` : `${styles.sidebarItem}`
         }
         onClick={() => setActive(3)}

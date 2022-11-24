@@ -25,19 +25,11 @@ const EnrollmentHeat = () => {
         />
         <Form.Check
           inline
-          label="School Distribution Count-wise"
+          label="School Distribution Fees & Dropout-wise"
           name="tab"
           type={"radio"}
           id={`inline-2`}
           onClick={() => setTab(2)}
-        />
-        <Form.Check
-          inline
-          label="Drop Out Rate Distribution"
-          name="tab"
-          type={"radio"}
-          id={`inline-2`}
-          onClick={() => setTab(3)}
         />
         <Form.Check
           inline
@@ -62,7 +54,7 @@ const EnrollmentHeat = () => {
         <div>
           <tableau-viz
             id="tableauViz"
-            src="https://prod-useast-a.online.tableau.com/#/site/learnup/views/hjf/Sheet1?:iid=2"
+            src="https://prod-useast-a.online.tableau.com/#/site/learnup/views/hjf/Sheet1?:iid=1"
             device="desktop"
             hide-tabs
           ></tableau-viz>
