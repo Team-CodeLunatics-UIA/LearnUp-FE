@@ -43,6 +43,7 @@ import TeacherOverview from "./Dashboard/Teacher/TeacherOverview";
 import TeacherFeedback from "./Dashboard/Teacher/TeacherFeedback";
 import TeacherStudentDashboard from "./Dashboard/Teacher/TeacherStudentDashboard";
 import TeacherPredictions from "./Dashboard/Teacher/TeacherPredictions";
+import TeacherAddDetails from "./Dashboard/Teacher/TeacherAddDetails/TeacherAddDetails";
 
 // SCHOOL STAFF
 import SchoolLayout from "./Dashboard/School/SchoolLayout";
@@ -87,6 +88,7 @@ export {
   TeacherFeedback,
   TeacherPredictions,
   TeacherStudentDashboard,
+  TeacherAddDetails,
   DistrictOverview,
   DistrictSchoolRankings,
   DistrictVisualizations,

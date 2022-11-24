@@ -35,6 +35,7 @@ import {
   SchoolRequirements,
   DistrictMapView,
   SchoolVisualization,
+  TeacherAddDetails,
   // Overview,
   // StaffReports,
   // NationalView,
@@ -105,6 +106,7 @@ function App() {
               path="/teacher/student-predictions"
               component={TeacherPredictions}
             />
+            <TeacherRoute exact path="/teacher/fill-details" component={TeacherAddDetails} />
 
             {/* <PrivateRoute exact path="/admin/overview" component={Overview} />
             <PrivateRoute exact path="/admin/reports" component={StaffReports} />

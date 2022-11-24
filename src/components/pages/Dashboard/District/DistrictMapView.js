@@ -10,7 +10,7 @@ const DistrictMapView = () => {
       <Nav variant="tabs" defaultActiveKey="/map" style={{ marginBottom: "10px" }}>
         <Nav.Item>
           <Nav.Link
-            eventkey="map"
+            href="/map"
             onClick={(e) => {
               e.preventDefault();
               setTab(1);
