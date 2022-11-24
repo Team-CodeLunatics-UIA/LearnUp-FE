@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
+import AddAttendance from "./AddAttendance";
 
 import AddExamReports from "./AddExamReports";
 
@@ -37,7 +38,11 @@ const TeacherAddDetails = () => {
           <AddExamReports />
         </>
       )}
-      {tab === 2 && <>Student Attendance : Upload xls, csv or Fill Manually</>}
+      {tab === 2 && (
+        <>
+          <AddAttendance />
+        </>
+      )}
       {tab === 3 && <>Suggestions</>}
       {tab === 4 && <>Alerts</>}
     </>
